@@ -1,0 +1,38 @@
+from dependencia import *
+#Fondo de pantalla 
+from PIL import ImagenTk, Image
+
+
+class LoginApp(tk.Tk):
+    def __init__(self):
+        super().__init__()
+        
+        self.title("Inicio de sesión")
+        
+        imagen= Image.open("imagenes/fondo_cfp3.png").covert("RGBA")
+        background_image= ImagenTk.PhotoImage(image)
+        
+        background_label= tk.label(self, image= background_image)
+        background_label.place(x=0, y=0, relwidth=1, relheight=1)
+        background_label.image= background_image
+        
+        label_usuario=tk.label(self, text="usuario:",bg="red")
+        label_usuario.pack()
+        
+        entry_usuario= tk.Entry(self, bg="red")
+        entry_usuario.pack()
+        
+        label_contrasena= tk.label(self,text="contraseña:")
+        label_contrasena.pack()
+        
+        entry_contraseña= tk.Entry(self, show="*")
+        entry_contraseña.pack()
+        
+        login_button=tk.Button(self,text="Iniciar sesión",comand=lamda: self.login(entry_usuario))
+        login_button.pack()
+        
+        def login(self, usuario, contraseña):
+            
+            if usuario=="admin" and contraseña=="1234":
+                print("inicio de sesion correcto")
+                self.
